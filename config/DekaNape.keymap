@@ -43,7 +43,7 @@
 
         base1_layer {
             bindings = <
-&mkp LCLK  &mkp MB4  &mkp MB5  &mkp RCLK  &kp LG(C)  &kp K_SCROLL_UP  &kp K_SCROLL_DOWN  &kp LG(V)
+&mkp LCLK  &mkp MB4  &mkp MB5  &mkp RCLK  &kp LG(C)  &kp C_AC_SCROLL_UP  &kp C_AC_SCROLL_DOWN  &kp LG(V)
             >;
         };
 
