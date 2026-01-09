@@ -5,16 +5,15 @@
  */
 
 #include <input/processors.dtsi>
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
 #include <scroll-snap.dtsi>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/pointing.h>
 
 #define BASE   0
 #define SCROLL 1
 #define BOOT   2
-
 
 &trackball_scroller {
     layers = <SCROLL>;
@@ -22,24 +21,20 @@
         <&zip_xy_scaler 1 25 &zip_xy_to_scroll_mapper &zip_scroll_snap>,
         <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)>;
 };
+
 / {
- combos {
+    combos {
         compatible = "zmk,combos";
 
         mo_boot {
             bindings = <&mo BOOT>;
             key-positions = <0 7>;
         };
-        
+
         mo_scroll {
             bindings = <&mo SCROLL>;
-           key-positions = <3 7>;
+            key-positions = <3 7>;
         };
-
-    };
-
-    behaviors {
-
     };
 
     keymap {
@@ -47,22 +42,19 @@
 
         base1_layer {
             bindings = <
-&mkp MB4   &mkp MCLK      &mkp MCLK  &mkp LCLK
-&mkp MB5   &mkp LCLK      &mkp RCLK  &mkp RCLK  
+&mkp LCLK  &mkp MCLK  &mkp MCLK  &mkp LCLK  &mkp MB5  &mkp LCLK  &mkp RCLK  &mkp RCLK
             >;
         };
 
         scroll_layer {
             bindings = <
-&trans   &trans      &trans   &trans
-&trans   &trans      &trans  &trans 
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         boot_layer {
             bindings = <
-&trans         &bt BT_CLR        &bt BT_NXT      &bootloader
-&bt BT_SEL 0   &bt BT_SEL 1      &bt BT_SEL 2    &trans
+&trans  &bt BT_CLR  &bt BT_NXT  &bootloader  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans
             >;
         };
     };
